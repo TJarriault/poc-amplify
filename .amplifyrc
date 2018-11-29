@@ -1,0 +1,14 @@
+{
+    "providers": {
+        "awscloudformation": {
+            "AuthRoleName": "poc-AWSACCOUNTID-authRole",
+            "UnauthRoleArn": "arn:aws:iam::011664437294:role/poc-AWSACCOUNTID-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::011664437294:role/poc-AWSACCOUNTID-authRole",
+            "Region": "eu-west-1",
+            "DeploymentBucketName": "poc-AWSACCOUNTID-deployment",
+            "UnauthRoleName": "poc-AWSACCOUNTID-unauthRole",
+            "StackName": "poc-AWSACCOUNTID",
+            "StackId": "arn:aws:cloudformation:eu-west-1:....:stack/poc-AWSACCOUNTID/...."
+        }
+    }
+}

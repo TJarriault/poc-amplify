@@ -1,0 +1,124 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "poctony-20181013105025-authRole",
+			"UnauthRoleArn": "arn:aws:iam::011664437294:role/poctony-20181013105025-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::011664437294:role/poctony-20181013105025-authRole",
+			"Region": "eu-west-1",
+			"DeploymentBucketName": "poctony-20181013105025-deployment",
+			"UnauthRoleName": "poctony-20181013105025-unauthRole",
+			"StackName": "poctony-20181013105025",
+			"StackId": "arn:aws:cloudformation:eu-west-1:011664437294:stack/poctony-20181013105025/06f663d0-cec5-11e8-9d9f-50fae9b6ecd2"
+		}
+	},
+	"function": {
+		"poctony": {
+			"service": "Lambda",
+			"providerPlugin": "awscloudformation",
+			"build": true,
+			"dependsOn": [],
+			"lastBuildTimeStamp": "2018-10-13T08:53:00.306Z",
+			"lastPackageTimeStamp": "2018-10-15T16:22:06.822Z",
+			"distZipFilename": "poctony-1539620526-latest-build.zip",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/poctony-20181013105025-deployment/amplify-cfn-templates/function/poctony-cloudformation-template.json",
+				"logicalId": "functionpoctony"
+			},
+			"lastPushTimeStamp": "2018-10-15T16:23:11.146Z",
+			"output": {
+				"Region": "eu-west-1",
+				"Arn": "arn:aws:lambda:eu-west-1:011664437294:function:poctony",
+				"Name": "poctony"
+			},
+			"lastPushDirHash": "rikfalBi2wAZx0B4DPw/Ch+e7EI="
+		},
+		"test": {
+			"service": "Lambda",
+			"providerPlugin": "awscloudformation",
+			"build": true,
+			"dependsOn": [],
+			"lastBuildTimeStamp": "2018-10-13T19:39:49.295Z",
+			"lastPackageTimeStamp": "2018-10-13T19:39:49.320Z",
+			"distZipFilename": "test-1539459589-latest-build.zip",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/poctony-20181013105025-deployment/amplify-cfn-templates/function/test-cloudformation-template.json",
+				"logicalId": "functiontest"
+			},
+			"lastPushTimeStamp": "2018-10-15T16:23:11.143Z",
+			"output": {
+				"Region": "eu-west-1",
+				"Arn": "arn:aws:lambda:eu-west-1:011664437294:function:test",
+				"Name": "test"
+			},
+			"lastPushDirHash": "a05N/YeyeWpID8ZsSP7rVTPuRMM="
+		}
+	},
+	"auth": {
+		"cognito1c7c0111": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/poctony-20181013105025-deployment/amplify-cfn-templates/auth/cognito1c7c0111-cloudformation-template.yml",
+				"logicalId": "authcognito1c7c0111"
+			},
+			"lastPushTimeStamp": "2018-10-15T16:23:11.144Z",
+			"output": {
+				"AppClientSecret": "gslm67176r18innlmong0qd3hnb5d5hf98h309ouapkc0j36ig2",
+				"UserPoolId": "eu-west-1_g30XT5PiK",
+				"AppClientIDWeb": "2nll7jr08jeemhuvfjbuj5k50r",
+				"AppClientID": "nma3f03jaep904n53drvph8h5",
+				"IdentityPoolId": "eu-west-1:5bd7d46e-e420-477e-b063-15055d44e9bb",
+				"IdentityPoolName": "poctony_identitypool_0c5fdd17",
+				"UserPoolName": "poctony_userpool_0c5fdd17"
+			},
+			"lastPushDirHash": "amIVajYH6T3waTLXXj5iYf2y9ho="
+		}
+	},
+	"api": {
+		"poctony": {
+			"service": "API Gateway",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "poctony",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			],
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/poctony-20181013105025-deployment/amplify-cfn-templates/api/poctony-cloudformation-template.json",
+				"logicalId": "apipoctony"
+			},
+			"lastPushTimeStamp": "2018-10-15T16:23:11.144Z",
+			"output": {
+				"ApiName": "poctony",
+				"RootUrl": "https://bz9tghn8h4.execute-api.eu-west-1.amazonaws.com/Prod"
+			},
+			"lastPushDirHash": "o2XUfiz4+O4fc3FDYbuCgwIYH9E="
+		}
+	},
+	"hosting": {
+		"S3AndCloudFront": {
+			"service": "S3AndCloudFront",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/poctony-20181013105025-deployment/amplify-cfn-templates/hosting/template.json",
+				"logicalId": "hostingS3AndCloudFront"
+			},
+			"lastPushTimeStamp": "2018-10-15T16:23:11.145Z",
+			"output": {
+				"S3BucketSecureURL": "https://poctony-20181013110120--hostingbucket.s3.amazonaws.com",
+				"WebsiteURL": "http://poctony-20181013110120--hostingbucket.s3-website-eu-west-1.amazonaws.com",
+				"Region": "eu-west-1",
+				"HostingBucketName": "poctony-20181013110120--hostingbucket",
+				"CloudFrontSecureURL": "https://d7754k6p45y4o.cloudfront.net",
+				"CloudFrontDistributionID": "E10Q6AEZFY2ZC9",
+				"CloudFrontDomainName": "d7754k6p45y4o.cloudfront.net"
+			},
+			"lastPushDirHash": "ESa5Md8+FJx4JLpls+KveATA+RA="
+		}
+	}
+}

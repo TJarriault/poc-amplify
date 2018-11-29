@@ -1,0 +1,35 @@
+{
+    "paths": [
+        {
+            "name": "/items",
+            "lambdaFunction": "poctony",
+            "privacy": {
+                "private": true,
+                "auth": "rw"
+            }
+        }
+    ],
+    "resourceName": "poctony",
+    "apiName": "poctony02483cde",
+    "functionArns": [
+        {
+            "lambdaFunction": "poctony"
+        }
+    ],
+    "privacy": {
+        "auth": 1,
+        "unauth": 0,
+        "authRoleName": "poctony-20181013105025-authRole",
+        "unAuthRoleName": "poctony-20181013105025-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "poctony",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}
